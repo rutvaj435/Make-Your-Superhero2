@@ -1,0 +1,20 @@
+.body_css{
+
+    background-image: url("InfinityWar.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#myCanvas{
+    background:white;
+    border: ridge 10px grey;
+}
+h3{
+    display:inline-block;
+
+}
+
+#currentSize{
+    width: 600px;
+    
+}
