@@ -1,9 +1,9 @@
-const { fabric } = require("./fabric");
+
 
 var canvas = new fabric.Canvas("myCanvas");
 
-var block_width = 30;
-var block_height = 30;
+var block_width = 50;
+var block_height = 50;
 var player_x = 10;
 var player_y = 10;
 var playerObject = "";
@@ -27,7 +27,7 @@ function player_update() {
 }
 
 function new_image(get_image) {
-    fabric.image.fromURL(get_image, function(Img) {
+    fabric.Image.fromURL(get_image, function(Img) {
         blockObject = Img;
         blockObject.scaleToWidth(block_width);
         blockObject.scaleToHeight(block_height);
@@ -40,18 +40,31 @@ function new_image(get_image) {
     });
 }
 
-window.addEventListener("keydown", keydownFn);
+window.addEventListener('keydown', keydownFn);
 
-function keydownFn() {
+
+function keydownFn(e) {
     keyPressed = e.keyCode;
     console.log(keyPressed);
     
     if (e.shiftKey == true && keyPressed == '80') {
-        console.log("working");
         block_width += 10;
         block_height += 10;
         document.getElementById("currentWidth").innerHTML = block_width;
         document.getElementById("currentHeight").innerHTML = block_height;
 
     } 
+    if(e.shiftKey == true && keyPressed == '77') {
+        block_width -= 10;
+        block_height -= 10;
+        document.getElementById("currentWidth").innerHTML = block_width;
+        document.getElementById("currentHeight").innerHTML = block_height;
+
+    }
+    if (keyPressed == '70') {
+        new_image('ironman_left_hand.png');
+        console.log('f');
+
+    }
+
 }
